@@ -54,14 +54,22 @@ int main(void)
 
     std::cout << "Hello message sent." << std::endl; 
 
-    n = recvfrom(
-            sockfd, 
-            (char *) buffer, 
-            MAXLINE,  
-            MSG_WAITALL, 
-            (struct sockaddr *) &servaddr, 
-            &len );
-  
+    /*
+    // #test: Waiting for response.
+    while (1)
+    {
+        n = recvfrom(
+                sockfd, 
+                (char *) buffer, 
+                MAXLINE,  
+                MSG_WAITALL, 
+                (struct sockaddr *) &servaddr, 
+                &len );
+        if (n>0)
+            std::cout << "MESSAGE:  " << buffer << std::endl;
+    };
+    */
+
     buffer[n] = '\0'; 
     std::cout<<"Server :"<<buffer<<std::endl; 
    
